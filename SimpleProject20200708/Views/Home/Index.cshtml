@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SimpleProject20200708.Models.Student>
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>學生列表</h3>
+
+<table class="table">
+
+    <tr>
+        <th>
+            座號
+            <form>
+                <select name="IdOrder">
+                    <option value="1">小-大</option>
+                    <option value="2">大-小</option>
+                </select>
+                <input type="submit" value="confirm" />
+            </form>
+        </th>
+        <th>
+            姓名
+        </th>
+        <th>
+            分數
+            <form>
+                <select name="ScoreOrder">
+                    <option value="1">小-大</option>
+                    <option value="2">大-小</option>
+                </select>
+                <input type="submit" value="confirm" />
+            </form>
+        </th>
+        <th>
+            興趣
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+    <!--現在編號fId如果新增的話不會自動從前一個編號往下，例如1 2 要補上3，但是會補上10 11....-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.fStudentID
+            </td>
+            <td>
+                @item.fName
+            </td>
+            <td>
+                @item.fScore
+            </td>
+            <td>
+                @item.fHabit
+            </td>
+            <td>
+                
+                @Html.ActionLink("刪除", "Delete", new { iddelete = item.fStudentID }) |
+                @Html.ActionLink("編輯", "Edit", new { id = item.fStudentID })
+            </td>
+
+        </tr>
+    }
+</table>
+
+<br />
+    | @Html.ActionLink("新增", "Create", "Home") |

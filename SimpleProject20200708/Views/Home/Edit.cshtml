@@ -1,0 +1,49 @@
+﻿@model SimpleProject20200708.Models.Student
+
+
+<h2>修改</h2>
+<hr />
+<br />
+<br />
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+
+    <div>
+        <input type="hidden" name="fStudentID" value="@Model.fStudentID" />
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fName)
+        @Html.EditorFor(Model => Model.fName)
+        @Html.ValidationMessageFor(Model => Model.fName, "")
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fScore)
+        @Html.EditorFor(Model => Model.fScore)
+        @Html.ValidationMessageFor(Model => Model.fScore, "")
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fHabit)
+        @Html.EditorFor(Model => Model.fHabit)
+        @Html.ValidationMessageFor(Model => Model.fHabit, "")
+    </div>
+    <input type="submit" value="修改確認" />
+   
+}
+<br />
+@Html.ActionLink("返回顯示頁面","Index","Home")
+<!--
+<div>
+    <form method="post" action="Edit">
+        <input type="hidden" name="idstudentid" value="@Model.fStudentID" />
+        <br />
+        姓名 : <input type="text" name="idname" value="@Model.fName" />
+        <br />
+        成績 : <input type="number" name="idscore" value="@Model.fScore" />
+        <br />
+        興趣 : <input type="text" name="idhabit" value="@Model.fHabit" />
+        <br />
+        <input type="submit" value="修正" /> | <input type="reset" value="重設" />
+    </form>
+
+</div>
+-->

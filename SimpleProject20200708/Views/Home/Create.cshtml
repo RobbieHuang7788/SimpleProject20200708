@@ -1,0 +1,59 @@
+﻿@model SimpleProject20200708.Models.Student
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>新增</h2>
+<hr />
+<br />
+<br />
+<!--注意對應的<input name""/>的部分，因為@Html.EditorFor中有許多用法，用F12定義去看，就可以知道多載的方法，我剛開始沒用到string htmlFieldName資料就post不回controller
+public static MvcHtmlString EditorFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression, string templateName, string htmlFieldName);-->
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+   
+    <div>
+        @Html.LabelFor(Model => Model.fStudentID)
+        @Html.EditorFor(Model => Model.fStudentID)
+        @Html.ValidationMessageFor(Model => Model.fStudentID, "")
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fName)
+        @Html.EditorFor(Model => Model.fName)
+        @Html.ValidationMessageFor(Model => Model.fName, "")
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fScore)
+        @Html.EditorFor(Model => Model.fScore)
+        @Html.ValidationMessageFor(Model => Model.fScore, "")
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.fHabit)
+        @Html.EditorFor(Model => Model.fHabit)
+        @Html.ValidationMessageFor(Model => Model.fHabit, "")
+    </div>
+    <input type="submit" value="新增" />
+    <input type="reset" value="重設" />
+
+}
+<!--
+<div>
+    <form method="post" action="Create">
+        座號 :<input type="number" name="idstudentid" />
+<br />
+        姓名 :
+<input type="text" name="idname" />
+<br />
+        成績 :
+<input type="number" name="idscore" />
+<br />
+        興趣 :
+<input type="text" name="idhabit" />
+<br />
+<input type="submit" value="新增" /> |
+<input type="reset" value="重設" />
+    </form>
+
+</div>
+-->
